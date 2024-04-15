@@ -6,7 +6,7 @@ interface Todo {
     completed: boolean
   }
   
-  const todo: MyReadonly2<Todo, 'description'> = {
+  const todo: MyReadonly2<Todo> = {
     title: "Hey",
     description: "foobar",
     completed: false,
