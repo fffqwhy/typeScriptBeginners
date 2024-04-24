@@ -5,9 +5,7 @@ type FindEles<T extends any[], Duplicates = never> = T extends [
   ]
     ? F extends Duplicates
       ? FindEles<R, Duplicates>
-      : F extends R[number]
-      ? FindEles<R, Duplicates | F>
-      : [F, ...FindEles<R, Duplicates>]
+      : (F extends R[number] ? FindEles<R, Duplicates | F> : [F, ...FindEles<R, Duplicates>])
     : [];
 
 type a = [1,2,3,4,1,2,3,1,5];
