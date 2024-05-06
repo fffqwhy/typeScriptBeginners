@@ -12,6 +12,10 @@ interface Dog {
     breeds: 'Hound' | 'Brittany' | 'Bulldog' | 'Boxer'
     color: 'brown' | 'white' | 'black'
 }
-type LookUpEr<T extends {type:string},K> = T['type'] extends K ? T :never;
+type LookUpEr<T extends {type:string},K> = T['type'] extends K ? T :never; // T["type"] 不会触发分布式 （distributive ）；即：dog|cat;
 type LookUp<U, T> = U extends {type: T} ? U : never;
+type LookUp2<U, T extends string> = {
+    [K in T]: U extends { type: T } ? U : never
+  }[T]
 type MyDog = LookUp<Cat | Dog, 'dog'> // expected to be `Dog`
+type MyDog2 = LookUp2<Cat | Dog, 'dog'> // expected to be `Dog`
