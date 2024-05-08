@@ -12,3 +12,5 @@ type Test<T extends any[]> = {
     [K in keyof T]:T[K] extends string ? "haha" : "heihei"
 }
 type TestR = Test<["12","33",111]>
+
+
