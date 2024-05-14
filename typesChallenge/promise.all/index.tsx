@@ -8,9 +8,9 @@ declare function PromiseAll<T extends any[]>(values: readonly [...T]):
 // expected to be `Promise<[number, 42, string]>`
 const p = PromiseAll([promise1, promise2, promise3] as const);
 
-type Test<T extends any[]> = {
+type Test1<T extends any[]> = {
     [K in keyof T]:T[K] extends string ? "haha" : "heihei"
 }
-type TestR = Test<["12","33",111]>
+type TestR = Test1<["12","33",111]>
 
 

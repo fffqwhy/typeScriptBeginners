@@ -9,5 +9,6 @@ type a = Exclude<"1","2">
 type combina<T extends string[],ALL = T[number],item=ALL> = item extends string ? item| `${item} ${combina<[],Exclude<ALL,item>>}` :item ;
 type x =  combina<['1','3','4']>;
 type tt = combina<[],"1"|"2">
+// ALL 和item 相当于 两个相同的类型，或的话会相互组合
 type ttt<ALL = '1'|'2'|'3',item=ALL> = item | `${item}${ALL}`;
-type t1 = ttt<"1","1"|"2"|"3">; 6
+type t1 = ttt; 6
