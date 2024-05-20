@@ -4,3 +4,4 @@ type Chainable<T = {}> = {
       : K, value: V) => Chainable<Omit<T, K> & Record<K, V>>
     get: () => T
   }
+  
