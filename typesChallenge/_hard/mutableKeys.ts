@@ -11,7 +11,7 @@ type Mutable<T> =  {-readonly [K in keyof T]:T[K]};
 type FilterReadonlyField<T> = {
     [key in keyof T as IfEquals<{[Q in key]:T[key]}, {-readonly[ Q in key]:T[key]},never,key>]
     :T[key]
-};
+}
 type IfEquals<X, Y, A = X, B = never> =
   (<T>() => T extends X ? 1 : 2) extends
   (<T>() => T extends Y ? 1 : 2) ? B : A;
