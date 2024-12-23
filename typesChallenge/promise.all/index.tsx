@@ -13,4 +13,4 @@ type Test1<T extends any[]> = {
 }
 type TestR = Test1<["12","33",111]>
 
-
+const test: TestR = ["haha", "haha", "heihei"];
